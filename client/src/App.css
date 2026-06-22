@@ -176,6 +176,14 @@
   gap: 12px;
 }
 
+.event-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
 .event-card:hover {
   border-color: rgba(167, 139, 250, 0.3);
   background: linear-gradient(

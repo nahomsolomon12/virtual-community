@@ -13,6 +13,19 @@ function App() {
     ...new Set(events.map((event) => event.location).filter(Boolean)),
   ];
 
+  const locationImages = {
+    "City Tech Hub":
+      "https://convene.com/wp-content/uploads/2025/05/Convene-One-Boston-Place-Terrace-Lounge_Lifestyle-Ben-Gebo-1-1536x1024.jpg",
+    "Riverside Theater":
+      "https://upload.wikimedia.org/wikipedia/commons/2/2f/Wien_-_Staatsoper%2C_Zuschauerraum_mit_B%C3%BChne.JPG",
+    "Downtown Hall":
+      "https://limitlesslightsandsound.com/wp-content/uploads/2024/05/20220812_063557.webp",
+    "Skyline Loft":
+      "https://images.trvl-media.com/lodging/120000000/119810000/119800100/119800087/c23fc60d.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill",
+    "Harbor Pavilion":
+      "https://assets.milestoneinternet.com/cdn-cgi/image/f=auto/newport-hotel-group-parent/bristol-harbor-inn/siteimages/bristolharborinn-meetings-hero.jpg?width=1800&height=650",
+  };
+
   const filteredEvents =
     selectedVenue === "all"
       ? events
@@ -109,6 +122,15 @@ function App() {
         <div className="event-grid">
           {filteredEvents.map((event, index) => (
             <article className="event-card" key={event.id ?? index}>
+              {event.location ? (
+                <img
+                  className="event-image"
+                  src={locationImages[event.location] || "/images/default.svg"}
+                  alt={event.location}
+                  loading="lazy"
+                  decoding="async"
+                />
+              ) : null}
               <div className="event-header">
                 <h3 className="event-title">{event.name}</h3>
                 <span className="event-id">#{event.id}</span>
